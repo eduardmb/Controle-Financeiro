@@ -147,3 +147,28 @@ def pie_valores():
         lista_categorias.append(i)
 
     return([lista_categorias, lista_quantias])
+
+# funcao percentagem
+def percentagem_valor():
+    #receita total -----
+    receitas = ver_receitas()
+    receitas_lista = []
+
+    for i in receitas:
+        receitas_lista.append(i[3])
+
+    receita_total = sum(receitas_lista)
+
+    #despesas total -------------
+    gastos = ver_gastos()
+    gastos_lista = []
+
+    for i in gastos:
+        gastos_lista.append(i[3])
+
+    gasto_total = sum(gastos_lista)
+
+    # Porcentagem Total
+    total = ((receita_total - gasto_total) / receita_total) * 100
+
+    return [total]

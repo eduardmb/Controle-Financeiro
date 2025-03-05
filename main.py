@@ -18,7 +18,7 @@ from tkcalendar import DateEntry
 import locale
 
 # importanto funcoes da view
-from view import bar_valores,pie_valores, inserir_categoria,ver_categoria, inserir_receita, inserir_gastos,tabela, deletar_gastos, deletar_receitas
+from view import bar_valores,pie_valores,percentagem_valor, inserir_categoria,ver_categoria, inserir_receita, inserir_gastos,tabela, deletar_gastos, deletar_receitas
 
 # Define o local para o Brasil (ajuda no formato da data)
 locale.setlocale(locale.LC_TIME, "pt_BR.UTF-8")
@@ -193,7 +193,7 @@ def deletar_dados():
 # percentagem ------------------------
 
 def percentagem():
-    l_nome = Label(frameMeio, text="Porcentagem da Receita gasta", height=1,anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
+    l_nome = Label(frameMeio, text="Porcentagem da Receita", height=1,anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
     l_nome.place(x=7, y=5)
 
     style = ttk.Style()
@@ -203,9 +203,9 @@ def percentagem():
 
     bar = Progressbar(frameMeio, length=180,style='black.Horizontal.TProgressbar')
     bar.place(x=10, y=35)
-    bar['value'] = 50
+    bar['value'] = percentagem_valor()[0]
 
-    valor = 50
+    valor = percentagem_valor()[0]
 
     l_percentagem = Label(frameMeio, text="{:,.2f}%".format(valor), anchor=NW, font=('Verdana 12'), bg=co1, fg=co4)
     l_percentagem.place(x=200, y=35)
